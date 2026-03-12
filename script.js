@@ -5,6 +5,8 @@ const scissors = "Scissors"
 let playerChoice = ""
 let computerChoice = ""
 
+let score = 0
+
 function computerChoose(){
     let random = Math.floor(Math.random() * 3) + 1;
     switch(random){
@@ -24,6 +26,7 @@ let rockButton = document.getElementById("Rock")
 let paperButton = document.getElementById("Paper")
 let scissorsButton = document.getElementById("Scissors")
 let output = document.getElementById("Output")
+let scr = document.getElementById("Score")
 
 rockButton.addEventListener("click",() => playerChoose(rock))
 paperButton.addEventListener("click",() => playerChoose(paper))
@@ -34,6 +37,7 @@ function playerChoose(choice){
     console.log("Player choose: ", choice)
     playerChoice = choice
     play()
+    console.log("Score: ", score)
     reset()
 }
 
@@ -43,14 +47,19 @@ function play(){
         if (computerChoice == paper){
             console.log("Result: Computer has won!")
             output.textContent = "Result: Computer has won!"
+            score -= 100
+            scr.textContent = "Score: " + score
         }
         else if(computerChoice == scissors){
             console.log("Result: Player has won!")
             output.textContent = "Result: Player has won!"
+            score += 100
+            scr.textContent = "Score: " + score
         }
         else{
             console.log("Result: Draw");
             output.textContent = "Result: Draw"
+            scr.textContent = "Score: " + score
         }
     }   
     //Paper
@@ -58,14 +67,19 @@ function play(){
         if (computerChoice == scissors){
             console.log("Result: Computer has won!")
             output.textContent = "Result: Computer has won!"
+            score -= 100
+            scr.textContent = "Score: " + score
         }
         else if(computerChoice == rock){
             console.log("Result: Player has won!")
             output.textContent = "Result: Player has won!"
+            score += 100
+            scr.textContent = "Score: " + score
         }
         else{
             console.log("Result: Draw");
             output.textContent = "Result: Draw"
+            scr.textContent = "Score: " + score
         }
     }
     //Scissors
@@ -73,14 +87,19 @@ function play(){
         if (computerChoice == rock){
             console.log("Result: Computer has won!")
             output.textContent = "Result: Computer has won!"
+            score -= 100
+            scr.textContent = "Score: " + score
         }
         else if(computerChoice == paper){
             console.log("Result: Player has won!")
             output.textContent = "Result: Player has won!"
+            score += 100
+            scr.textContent = "Score: " + score
         }
         else{
             console.log("Result: Draw");
             output.textContent = "Result: Draw"
+            scr.textContent = "Score: " + score
         }
     }
 }
