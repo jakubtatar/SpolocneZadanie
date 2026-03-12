@@ -23,15 +23,18 @@ function computerChoose(){
 let rockButton = document.getElementById("Rock")
 let paperButton = document.getElementById("Paper")
 let scissorsButton = document.getElementById("Scissors")
+let output = document.getElementById("Output")
 
 rockButton.addEventListener("click",() => playerChoose(rock))
 paperButton.addEventListener("click",() => playerChoose(paper))
 scissorsButton.addEventListener("click",() => playerChoose(scissors))
 
 function playerChoose(choice){
-    console.log("Player choose", choice)
+    console.log("Computer choose: ", computerChoose());
+    console.log("Player choose: ", choice)
     playerChoice = choice
     play()
+    reset()
 }
 
 function play(){
@@ -39,38 +42,52 @@ function play(){
     if (playerChoice == rock){
         if (computerChoice == paper){
             console.log("Result: Computer has won!")
+            output.textContent = "Result: Computer has won!"
         }
         else if(computerChoice == scissors){
             console.log("Result: Player has won!")
+            output.textContent = "Result: Player has won!"
         }
         else{
             console.log("Result: Draw");
+            output.textContent = "Result: Draw"
         }
     }   
     //Paper
     else if (playerChoice == paper){
         if (computerChoice == scissors){
             console.log("Result: Computer has won!")
+            output.textContent = "Result: Computer has won!"
         }
         else if(computerChoice == rock){
             console.log("Result: Player has won!")
+            output.textContent = "Result: Player has won!"
         }
         else{
             console.log("Result: Draw");
+            output.textContent = "Result: Draw"
         }
     }
     //Scissors
     else if (playerChoice == scissors){
         if (computerChoice == rock){
             console.log("Result: Computer has won!")
+            output.textContent = "Result: Computer has won!"
         }
         else if(computerChoice == paper){
             console.log("Result: Player has won!")
+            output.textContent = "Result: Player has won!"
         }
         else{
             console.log("Result: Draw");
+            output.textContent = "Result: Draw"
         }
     }
 }
 
-console.log("Computer choose: ", computerChoose());
+function reset(){
+    playerChoice = ""
+    computerChoice = ""
+
+    console.log("Computer choose: ", computerChoose());
+}
